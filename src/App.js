@@ -21,7 +21,6 @@ class App extends Component {
  }
 
   render() {
-    console.log(this.props.grid.showInput);
     return (
       <div>
         <Title>Mine Sweeper</Title>

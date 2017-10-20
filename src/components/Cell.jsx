@@ -61,7 +61,7 @@ export class Cell extends React.Component {
 
 
   convertValue = (props) => {
-    const {value, x, y, grid} = props
+    const {x, y, grid} = props
     //the value of the cell is written in the div CLickedCell for the user to see
     const result = grid.cells.filter(v => {
     return v.id === `${x}${y}`;
