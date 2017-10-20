@@ -8,6 +8,6 @@ export const Game = styled.div`
     top:0;
     bottom: 150px;
     left: 0;
-    right: 0;
+    right: 15%;
     margin: auto;
 `

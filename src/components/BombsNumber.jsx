@@ -9,7 +9,7 @@ const H1 = styled.h1`
   color: #CCCCCC;
   position: relative;
   top: 40px;
-  left: 41%
+  left: 35%
 `
 export class BombNumber extends React.Component {
   render(){
