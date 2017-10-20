@@ -24,7 +24,6 @@ transition: background-color 200ms linear,
             border-bottom-color 200ms linear;
 outline: none;
 font-weight: 600;
-
 `
 export const ClickedCell = styled.div`
 width: 60px;
@@ -48,5 +47,4 @@ transition: background-color 200ms linear,
             border-bottom-color 200ms linear;
 outline: none;
 font-weight: 600;
-
 `

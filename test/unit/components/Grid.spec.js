@@ -17,6 +17,7 @@ describe('<Grid />', () => {
   }
 
   const testGrid = shallow(<Grid {...props}/>);
+
   it('should start render an empty div when first loaded', () => {
       expect(testGrid
          .find(Game))
@@ -24,12 +25,12 @@ describe('<Grid />', () => {
           .have
           .length(1);
   });
+
   it('should update table (the length of table is the number of Rows rendered)', () => {
       expect(props.grid.table.length).to.equal(3)
   });
+
   it('should update cells (the length of cells is the number of Cells rendered)', () => {
       expect(props.grid.cells.length).to.equal(12)
   });
-
-
 });

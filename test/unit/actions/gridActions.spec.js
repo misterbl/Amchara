@@ -2,11 +2,9 @@ import * as actions from '../../../src/actions/gridActions';
 
 describe('Grid Actions', () => {
   describe('saveGameConfig()', () => {
-
     const configuration = '3 4,*...,..*.,....';
     const row = 3;
     const column = 4;
-
 
     it('should be a function', () => {
       expect(actions.saveGameConfig)
@@ -14,6 +12,7 @@ describe('Grid Actions', () => {
         .be
         .a('function')
     })
+
     it('should return an object', () => {
       expect(actions.saveGameConfig(configuration, row, column))
         .to
@@ -31,12 +30,14 @@ describe('Grid Actions', () => {
 
   describe('saveBombsNumber()', () => {
   const configuration = ['3 4','*...','..*.','....'];
+
     it('should be a function', () => {
       expect(actions.saveBombsNumber)
         .to
         .be
         .a('function')
     })
+    
     it('should return an object', () => {
 
       expect(actions.saveBombsNumber(configuration))

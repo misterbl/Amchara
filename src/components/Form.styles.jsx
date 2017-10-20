@@ -6,7 +6,5 @@ export const Form = styled.form`
     top:80px;
     left: 30%;
     right: 0;
-
     margin: auto;
-
 `

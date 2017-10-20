@@ -8,8 +8,8 @@ export const saveGameConfig = (configuration, row, column) => ({
 });
 
 export const saveBombsNumber = (configuration, bombsNumber) => ({
-  //going through the user inout for gane's configuration, this function
-  //calculate how many bombs are in the game by countinf the "*"
+  //going through the user input for gane's configuration, this function
+  //calculate how many bombs are in the game by counting the "*"
   type: 'SAVE_BOMBS_NUMBER',
   bombsNumber: (configuration.join().match(/[*]/g) || []).length,
 });

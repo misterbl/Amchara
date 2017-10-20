@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Title>Mine Sweeper</Title>
+      <Title>Mine Sweeper</Title>
       <Input onSubmit={this.submit}/>
       <Grid key={this.state.key} cellsNumber={this.props.grid.configuration} />
     </div>
