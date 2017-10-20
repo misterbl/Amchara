@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Input from './components/Input';
 import Grid from './components/Grid';
 import BombNumber from './components/BombsNumber';
-import {Bomb} from './components/Cell.styles.jsx';
 import {Title} from './components/Title'
 import {saveGameConfig, hideInputField} from './actions/gridActions'
 
