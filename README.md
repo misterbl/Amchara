@@ -24,5 +24,5 @@ If you want to run the tests, run:
 For instance: `3 4,*...,..*.,....` will create a game of 3 row by 4 columns.
 A star is where a bomb is. In that example the 1st cell of the first row and the 3rd cell of the second row will have a bomb.
 2. Find where the bomb is. And open a cell you think doesn't contain a bomb.
-3. If you open a cell that doesn't contain a bomb, it will tell you how many bombs are in the adjacent cells. 0 means no bomb around, 1 means 1 bomb around etc...
+3. If you open a cell that doesn't contain a bomb, it will tell you how many bombs are in the adjacent cells. A green flag means no bomb around, the number "1" means 1 bomb around etc...
 4. If you open all the cells except for the bombs, you will win!

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {ClickableCell, ClickedCell} from './Cell.styles.jsx';
+import {Bomb, ClickableCell, ClickedCell, Flag} from './Cell.styles.jsx';
 
 
 export class Cell extends React.Component {
@@ -66,11 +66,10 @@ export class Cell extends React.Component {
     const result = grid.cells.filter(v => {
     return v.id === `${x}${y}`;
     });
-    if(result[0].count && result[0].value !== "*" ) return result[0].count
-    else if(!result[0].count && result[0].value !== "*" ) return "0"
-    else{return "*"}
+    if(result[0].count && result[0].value !== "*" ) return  <ClickedCell key={this.state.key}>{result[0].count}</ClickedCell>
+    else if(!result[0].count && result[0].value !== "*" ) return <Flag src={require('../images/green-flag.png')} alt=""/>
+    else{return <Bomb src={require('../images/bomb.png')} alt=""/>}
   };
-
   render(){
     return(
       <div>
@@ -78,7 +77,8 @@ export class Cell extends React.Component {
           <ClickableCell key={this.state.key} onClick={this.onClick}></ClickableCell>}
 
           {this.state.clicked &&
-            <ClickedCell key={this.state.key}>{this.convertValue(this.props)}</ClickedCell>}
+            <div>{this.convertValue(this.props)}</div>}
+            {/* <ClickedCell key={this.state.key}>{this.convertValue(this.props)}</ClickedCell>} */}
       </div>
           )
         }
