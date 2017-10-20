@@ -20,7 +20,7 @@ If you want to run the tests, run:
 
 
 ### How To Play
-1. Input the configuation of the game you want to play.
+1. Input the configuration of the game you want to play.
 For instance: `3 4,*...,..*.,....` will create a game of 3 row by 4 columns.
 A star is where a bomb is. In that example the 1st cell of the first row and the 3rd cell of the second row will have a bomb.
 2. Find where the bomb is. And open a cell you think doesn't contain a bomb.
