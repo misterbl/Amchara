@@ -47,7 +47,7 @@ export class Grid extends React.Component {
 
   render() {
     return(
-      <Game>{this.mapTable(this.props.grid.table,this.props.grid.cells)}</Game>
+      <Game>{this.mapTable(this.props.grid.table, this.props.grid.cells)}</Game>
     )}
   }
 
