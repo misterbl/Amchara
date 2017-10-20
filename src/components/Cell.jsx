@@ -10,7 +10,7 @@ export class Cell extends React.Component {
   }
 
   componentWillMount() {
-    //on page loading, the app assign a valur to each cell depending on
+    //on page loading, the app assign a value to each cell depending on
     //how many bombs are around it
     if(this.props.grid.cells) this.assignValue(this.props)
   }
@@ -62,7 +62,7 @@ export class Cell extends React.Component {
 
   convertValue = (props) => {
     const {x, y, grid} = props
-    //the value of the cell is written in the div CLickedCell for the user to see
+    //the value of the cell converted to a number, a bomb or a flag for the user to see
     const result = grid.cells.filter(v => {
     return v.id === `${x}${y}`;
     });
@@ -78,8 +78,7 @@ export class Cell extends React.Component {
 
           {this.state.clicked &&
             <div>{this.convertValue(this.props)}</div>}
-            {/* <ClickedCell key={this.state.key}>{this.convertValue(this.props)}</ClickedCell>} */}
-      </div>
+        </div>
           )
         }
       }

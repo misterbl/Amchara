@@ -21,11 +21,11 @@ export class BombNumber extends React.Component {
         }
       }
 
-      const mapStateToProps = state => ({
-        grid: state.grid,
-      });
+const mapStateToProps = state => ({
+  grid: state.grid,
+});
 
-      const mapDispatchToProps = {
-      };
+const mapDispatchToProps = {
+};
 
-      export default connect(mapStateToProps, mapDispatchToProps)(BombNumber);
+export default connect(mapStateToProps, mapDispatchToProps)(BombNumber);
