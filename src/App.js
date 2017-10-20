@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Input from './components/Input';
 import Grid from './components/Grid';
+import BombNumber from './components/BombsNumber';
+import {Bomb} from './components/Cell.styles.jsx';
 import {Title} from './components/Title'
 import {saveGameConfig, hideInputField} from './actions/gridActions'
 
@@ -25,6 +27,7 @@ class App extends Component {
       <div>
 
       <Title>Mine Sweeper</Title>
+      {this.props.grid.bombsNumber && <BombNumber/> }
       <Input onSubmit={this.submit}/>
       <Grid key={this.state.key} cellsNumber={this.props.grid.configuration} />
     </div>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {saveBombsNumber} from '../actions/gridActions';
 import Row from './Row';
 import {Game} from './Grid.styles'
+import {Bomb} from './Cell.styles'
 
 
 export class Grid extends React.Component {

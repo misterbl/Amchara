@@ -69,7 +69,18 @@ transition: background-color 200ms linear,
             border-bottom-color 200ms linear;
 outline: none;
 `
-
+export const BombCount = styled.img`
+width: 60px;
+height: 60px;
+margin: -10px;
+vertical-align: top;
+transition: background-color 200ms linear,
+            border-left-color 200ms linear,
+            border-right-color 200ms linear,
+            border-top-color 200ms linear,
+            border-bottom-color 200ms linear;
+outline: none;
+`
 export const Flag = styled.img`
 width: 60px;
 height: 60px;

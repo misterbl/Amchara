@@ -85,7 +85,6 @@ export class Cell extends React.Component {
       }
 
       const mapStateToProps = state => ({
-        cell: state.cell,
         grid: state.grid,
       });
 
