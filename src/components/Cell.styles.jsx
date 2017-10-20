@@ -72,7 +72,7 @@ outline: none;
 export const BombCount = styled.img`
 width: 60px;
 height: 60px;
-margin: -10px;
+margin: -5px;
 vertical-align: top;
 transition: background-color 200ms linear,
             border-left-color 200ms linear,

@@ -6,7 +6,7 @@ export const Title = styled.h1`
     top: 40px;
     left: 41%;
     right: 0;
-    font-size: 50px;
+    font-size: 60px;
     color: #c11111;
     margin: auto;
 `

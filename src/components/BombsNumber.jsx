@@ -1,12 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {BombCount} from './Cell.styles.jsx';
+import styled from 'styled-components';
 
 
+const H1 = styled.h1`
+  font-size: 43px;
+  color: #CCCCCC;
+  position: relative;
+  top: 40px;
+  left: 41%
+`
 export class BombNumber extends React.Component {
   render(){
     return(
-      <h1 style={{fontSize: '40px', color: "#CCCCCC", position: "relative", top: "40px", left: "41%"}}>{this.props.grid.bombsNumber} <BombCount style={{}}src={require('../images/bomb.png')} alt=""/> in this game</h1>
+      <H1>{this.props.grid.bombsNumber}<span> </span>
+         <BombCount style={{}}src={require('../images/bomb.png')} alt=""/> in this game
+      </H1>
           )
         }
       }
