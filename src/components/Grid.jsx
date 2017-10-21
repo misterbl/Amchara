@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {saveBombsNumber} from '../actions/gridActions';
 import Row from './Row';
-import {Game} from './Grid.styles';
+import {Game, NewGameButton} from './Grid.styles';
 
 
 export class Grid extends React.Component {
@@ -45,9 +45,15 @@ export class Grid extends React.Component {
     <Row key={index} row={row} cells={cells}/>
   ))
 
+  onClick() {
+    window.location.reload();
+  }
   render() {
     return(
+      <div>
       <Game>{this.mapTable(this.props.grid.table, this.props.grid.cells)}</Game>
+      {this.props.grid.bombsNumber && <NewGameButton onClick={this.onClick}>New game</NewGameButton>}
+      </div>
     )}
   }
 
