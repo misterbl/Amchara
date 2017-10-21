@@ -24,7 +24,6 @@ class App extends Component {
   render() {
     return (
       <div>
-
       <Title>Mine Sweeper</Title>
       {this.props.grid.bombsNumber && <BombNumber/> }
       <Input onSubmit={this.submit}/>

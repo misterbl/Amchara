@@ -4,21 +4,10 @@ import { assert, expect } from 'chai';
 import { spy } from 'sinon';
 import { Cell } from '../../../src/components/Cell';
 import { ClickableCell} from '../../../src/components/Cell.styles';
-
+import cellProps from '../../mocks/cellProps'
 
 describe('<Cell />', () => {
-  const props = {
-    grid: {configuration: '3 4,*...,..*.,....', table:[], cells: [
-      {id: `${0}${0}`, x: 0, y: 0, count: 0, value: "*"},
-      {id: `${0}${1}`, x: 0, y: 1, count: 0, value: "*"},
-      {id: `${0}${2}`, x: 0, y: 2, count: 0, value: "."},
-    ]},
-    assignValue: sinon.spy(),
-    convertValue: sinon.spy(),
-    x: 0,
-    y: 1,
-    value: ".",
-  }
+  const props = cellProps;
   const testCell = shallow(<Cell {...props}/>);
 
   it('should start render ClickableCell when first loaded', () => {
