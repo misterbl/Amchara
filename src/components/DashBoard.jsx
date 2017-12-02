@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { redirect } from '../actions/routeActions';
 import Logo from '../images/amchar_logo.png';
-import EditProfile from './EditProfile';
 import BottomButtons from './BottomButtons';
 import UserDetails from './UserDetails';
 import { saveUserDetails, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
@@ -33,7 +32,7 @@ export class Dashboard extends Component {
   }
 
   render() {
-    const {data, description, dob, email, gender, name, password, website, specialities} = this.props.user
+    const {data, description, dob, email, gender, name, website, specialities} = this.props.user
     return (
       <Container style={{width: '150%', marginLeft: '8%'}}>
         {data &&

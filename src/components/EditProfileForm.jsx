@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import firebase from '../firebase';
 import { redirect } from '../actions/routeActions';
-import { Form, InputField, Button, Flex } from './Styles.jsx';
+import { Form, InputField, Flex } from './Styles.jsx';
 
 
 export class EditProfileForm extends Component {

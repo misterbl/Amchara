@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { reduxForm } from 'redux-form';
-import { Form, InputField, Button } from './Styles.jsx';
+import { Form, InputField } from './Styles.jsx';
 
 export const AddSpeciality = ({ handleSubmit, specialitiesList }) => (
         <Form onSubmit={handleSubmit}>

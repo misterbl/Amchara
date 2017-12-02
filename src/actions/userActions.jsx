@@ -44,7 +44,7 @@ export const editProfile = (values, props) => (
     const editEmail = values && values.editEmail ? values.editEmail : email;
     const editWebsite = values && values.editWebsite ? values.editWebsite : website;
     const editPassword = values && values.editPassword ? values.editPassword : password;
-    const editDob = values && values.editDob ? values.editDob : password;
+    const editDob = values && values.editDob ? values.editDob : dob;
     const editGender = values && values.editGender ? values.editGender : gender;
     const editDescription = values && values.editDescription ? values.editDescription : description;
     const editSpecialities = !specialities ? [] : specialities;

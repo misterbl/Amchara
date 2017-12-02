@@ -46,7 +46,7 @@ return (
             <Close onClick={() => this.hideModal(type)}>&times;</Close>
               <ModalHead><br/>Please {text}</ModalHead>
             <Forms>
-              <LogSignForm onSubmit={this.validate} />
+              <LogSignForm text={text} onSubmit={this.validate} />
             </Forms>
           </ModalContent>
         </Modal>

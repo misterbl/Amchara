@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { reduxForm } from 'redux-form';
 import { Form, InputField, Button } from './Styles.jsx';
 
-export const LogSignForm = ({ handleSubmit }) => (
+export const LogSignForm = ({ handleSubmit, text }) => (
         <Form onSubmit={handleSubmit}>
           <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -25,7 +24,7 @@ export const LogSignForm = ({ handleSubmit }) => (
             label='Password'
             placeholder='password'
           /></div>
-          <Button type="submit">Log In</Button>
+          <Button type="submit">{text}</Button>
         </Form>
     );
 

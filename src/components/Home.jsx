@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import firebase from '../firebase';
 import BackGround from '../images/HomePagebackground.png'
 import Auth from './Auth';
 import { HomeContainer, LogSign } from './Styles.jsx';

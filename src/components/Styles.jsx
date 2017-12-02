@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import BackGround from '../images/HomePagebackground.png'
 import { Field } from 'redux-form';
 
 

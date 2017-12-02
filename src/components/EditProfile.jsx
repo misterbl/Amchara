@@ -26,7 +26,7 @@ export class EditProfile extends Component {
   addSpeciality = (values) => {
     this.setState({selected: true, alreadySelected: false})
     const newSpeciality = values.editSpecialities;
-    if(newSpeciality !== undefined && (this.props.user.specialities.indexOf(newSpeciality) === -1)){
+    if(newSpeciality && this.props.user.specialities && (this.props.user.specialities.indexOf(newSpeciality) === -1)){
       this.props.addSpeciality(newSpeciality, this.props.user.specialities)
     }
     else if (this.props.user.specialities.indexOf(newSpeciality) >  -1) {
@@ -36,7 +36,7 @@ export class EditProfile extends Component {
   }
 
   render() {
-    const {data, description, dob, email, gender, name, password, specialities} = this.props.user;
+    const {data, description, specialities} = this.props.user;
     const specialitiesList = ['Weight Management', 'Arthritis', 'Gut Health', 'Female Hormones', 'Diabetes', 'Adrenal Stress', 'Fertility'];
     return (
       <Container style={{width: '150%', marginLeft: '8%', marginTop: '57px'}}>
