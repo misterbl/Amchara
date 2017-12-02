@@ -1,6 +1,6 @@
-# Amchar Dashboard
+# Amchara Dashboard
 *This app is build using Javascript, React and Redux. Enzyme and Chai are used for testing.*
-##### You can use the app by clicking here:  [Amchar](https://amchar.herokuapp.com)
+##### You can use the app by clicking here:  [Amchara](https://amchara.herokuapp.com)
 ##### To use the app locally:
 To start, clone this Repo, then on the command line navigate to the containing folder.
 You need React JS installed on your computer to run this game. Check the official react documentation for more information: https://reactjs.org
