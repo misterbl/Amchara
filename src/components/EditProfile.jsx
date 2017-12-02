@@ -4,7 +4,7 @@ import { redirect } from '../actions/routeActions';
 import EditProfileForm from './EditProfileForm';
 import AddSpeciality from './AddSpeciality';
 import { editProfile, addSpeciality } from '../actions/userActions';
-import { Container, Speciality, Flex, Red } from './Styles.jsx';
+import { Container, Speciality, Flex, Red, Div } from './Styles.jsx';
 
 export class EditProfile extends Component {
 
@@ -42,7 +42,7 @@ export class EditProfile extends Component {
       <Container style={{width: '150%', marginLeft: '8%', marginTop: '57px'}}>
         {data &&
           <div className="row">
-            <div className="col-md-6">
+            <Div className="col-md-6">
               <div className="panel panel-default">
                 <div className="panel-body">
                   <div className="row">
@@ -66,7 +66,7 @@ export class EditProfile extends Component {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Div>
             </div>}
             {!data &&
               <div>

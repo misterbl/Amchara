@@ -5,7 +5,7 @@ import Logo from '../images/amchar_logo.png';
 import BottomButtons from './BottomButtons';
 import UserDetails from './UserDetails';
 import { saveUserDetails, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
-import {Container,Edit, Quarter, SignOut} from './Styles.jsx'
+import {Container,Edit, Quarter, SignOut, MainContainer, Div} from './Styles.jsx'
 
 export class Dashboard extends Component {
 
@@ -34,10 +34,10 @@ export class Dashboard extends Component {
   render() {
     const {data, description, dob, email, gender, name, website, specialities} = this.props.user
     return (
-      <Container style={{width: '150%', marginLeft: '8%'}}>
+      <MainContainer style={{width: '150%', marginLeft: '8%'}}>
         {data &&
           <div className="row">
-            <div className="col-md-6">
+            <Div className="col-md-6">
               <div className="panel panel-default">
                 <div className="panel-body">
                   <div className="row">
@@ -53,14 +53,14 @@ export class Dashboard extends Component {
                   <BottomButtons />
                 </div>
               </div>
-            </div>
+            </Div>
           </div>}
           {!data &&
             <div>
               <h3><strong>You must be logged in the view this page</strong> {description}</h3><br/>
               <button onClick={this.backHome} className="btn-success"><span className="fa fa-user"></span> Back home</button>
             </div>}
-          </Container>
+          </MainContainer>
         );
       }
     }

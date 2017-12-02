@@ -22,12 +22,34 @@ background-repeat: no-repeat;
 position: absolute;
 width: 100%;
 height: 100%;
+@media (max-width: 420px) {
+    height: 30% }
+  }
+`
+
+export const Div = styled.div`
+@media (max-width: 420px) {
+    width: 60%;
+  }
 `
 export const Container = styled.div`
 width: 75%;
 margin-top: 20px;
+@media (max-width: 420px) {
+    width: 100%;
+  }
 `
 
+export const MainContainer = styled.div`
+width: 75%;
+margin-top: 20px;
+width: 150%;
+margin-left: 8%;
+@media (max-width: 420px) {
+    width: 87%;
+  }
+
+`
 export const Forms = styled.div`
 display: flex;
 flex-direction: column;
@@ -52,6 +74,9 @@ export const Edit = styled.button`
 width: 20%;
 margin-bottom: 15px;
 margin-top: 10%;
+@media (max-width: 420px) {
+    width: 28%;
+  }
 `
 
 export const LogSign = styled.div`
@@ -60,6 +85,10 @@ margin-top: 24px;
 display: flex;
 justify-content: space-between;
 width: 130px;
+@media (max-width: 420px) {
+  margin-left: 11px;
+  margin-top: 18px }
+  }
 `
 
 export const Flex = styled.div`
@@ -72,12 +101,18 @@ color: red;
 
 export const Quarter = styled.div`
 width: 25%;
+@media (max-width: 420px) {
+    margin-left: 38%;
+  }
 `
 
 export const SignOut = styled.button`
 width: 10%;
 margin-left: 77%;
 margin-top: 5%;
+@media (max-width: 420px) {
+    width: 15%;
+  }
 `
 
 
@@ -102,6 +137,10 @@ height: 29%;
 width: 95%;
 text-align: center;
 font-size: 17px;
+@media (max-width: 420px) {
+    height: 30%;
+    font-size: 16px;
+}
 `
 
 export const ModalContent = styled.div`
@@ -111,6 +150,9 @@ padding: 20px;
 border: 1px solid #888;
 width: 40%;
 height: 44%;
+@media (max-width: 420px) {
+    width: 100% }
+  }
 `
 
 export const Close = styled.span`
