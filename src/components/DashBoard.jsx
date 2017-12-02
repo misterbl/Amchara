@@ -5,7 +5,7 @@ import Logo from '../images/amchar_logo.png'
 import EditProfile from './EditProfile';
 import BottomButtons from './BottomButtons'
 import { saveUserDetails, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
-import {Container, Specialities, Speciality, Edit, Quarter, SignOut} from './Styles.jsx'
+import {Container, Specialities, Speciality, Edit, Quarter, Card, SignOut, Category, UserDetails} from './Styles.jsx'
 
 export class Dashboard extends Component {
 
@@ -44,20 +44,50 @@ export class Dashboard extends Component {
                     <Container className="col-xs-12 col-sm-8">
                       <div>
                         <h2>{name}</h2>
-                        <p><strong>About me: </strong> {description}</p>
-                        <p><strong>Gender: </strong> {gender}</p>
-                        <p><strong>Date of birth: </strong> {dob}</p>
-                        <p><strong>Email: </strong> <a href={`mailto:${email}`}>{email}</a></p>
-                        <p><strong>Website: </strong><a href={website}>{website}</a></p>
-                        <p><strong>Specialities: </strong><br/>
-                        <Specialities>
-                          {specialities && specialities.map(speciality => (
-                            <div>
-                              <Speciality className="label label-info tags">{speciality}</Speciality>
-                              <br/></div>
-                            ))}
-                          </Specialities>
-                        </p>
+                        <Card className="w3-card-4" >
+                          <header className="w3-container">
+                            <Category>About me</Category>
+                          </header>
+                          <div className="w3-container"><UserDetails>{description}</UserDetails></div>
+                        </Card><br/>
+                        <Card className="w3-card-4" >
+                          <header className="w3-container">
+                            <Category>Gender</Category>
+                          </header>
+                          <div className="w3-container"><UserDetails>{gender}</UserDetails></div>
+                        </Card><br/>
+                        <Card className="w3-card-4" >
+                          <header className="w3-container">
+                            <Category>Date of birth:</Category>
+                          </header>
+                          <div className="w3-container"><UserDetails>{dob}</UserDetails></div>
+                        </Card><br/>
+                        <Card className="w3-card-4" >
+                          <header className="w3-container">
+                            <Category>Email</Category>
+                          </header>
+                          <div className="w3-container"><UserDetails>{email}</UserDetails></div>
+                        </Card><br/>
+                        <Card className="w3-card-4" >
+                          <header className="w3-container">
+                            <Category>Website</Category>
+                          </header>
+                          <a href={website} className="w3-container"><UserDetails>{website}</UserDetails></a>
+                        </Card><br/>
+                        <Card className="w3-card-4" >
+                          <header className="w3-container">
+                            <Category>Specialities</Category>
+                          </header>
+                          <div className="w3-container"><UserDetails>
+                            <Specialities>
+                              {specialities && specialities.map(speciality => (
+                                <div>
+                                  <Speciality className="label label-info tags">{speciality}</Speciality>
+                                  <br/></div>
+                                ))}
+                              </Specialities>
+                          </UserDetails></div>
+                        </Card>
                         <Edit onClick={this.edit} className="btn-success"><span className="fa fa-user"></span> Edit Profile</Edit>
                       </div>
                     </Container>

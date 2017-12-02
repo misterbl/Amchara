@@ -26,7 +26,6 @@ export class EditProfile extends Component {
   addSpeciality = (values) => {
     this.setState({selected: true, alreadySelected: false})
     const newSpeciality = values.editSpecialities;
-    console.log(newSpeciality);
     if(newSpeciality !== undefined && (this.props.user.specialities.indexOf(newSpeciality) === -1)){
       this.props.addSpeciality(newSpeciality, this.props.user.specialities)
     }

@@ -26,6 +26,7 @@ height: 100%;
 `
 export const Container = styled.div`
 width: 75%;
+margin-top: 20px;
 `
 
 export const Forms = styled.div`
@@ -40,7 +41,7 @@ margin-top: 5%;
 
 export const Specialities = styled.div`
 display: flex;
-width: 30%;
+width: 50%;
 justify-content: space-around;
 flex-wrap: wrap;
 `
@@ -124,4 +125,15 @@ font-weight: bold;
   text-decoration: none;
   cursor: pointer;
 }
+`
+
+export const UserDetails = styled.p`
+  text-align: center;
+`
+
+export const Category = styled.h3`
+  text-align: center;
+`
+export const Card = styled.div`
+border: 2px solid #A5CB63;
 `

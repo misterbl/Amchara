@@ -1,6 +1,6 @@
 const INIT = {
   data: null,
-  description: 'not provided',
+  description: 'Your name here',
   dob: 'not provided',
   email: 'not provided',
   gender: 'not provided',
