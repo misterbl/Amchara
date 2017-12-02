@@ -3,15 +3,15 @@ import createHistory from 'history/createHashHistory';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
-import gridReducer from '../reducers/gridReducer.js';
+import userReducer from '../reducers/userReducer.js';
 
 export const history = createHistory();
 
 const middleware = routerMiddleware(history);
 
 const reducer = combineReducers({
+  user: userReducer,
   form: formReducer,
-  grid: gridReducer,
 });
 
 export const store = createStore(

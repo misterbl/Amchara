@@ -1,6 +1,6 @@
 {
-  "short_name": "Mine Sweeper",
-  "name": "Mine Sweeper",
+  "short_name": "Amchara Dashboard",
+  "name": "Amchara Dashboard",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
