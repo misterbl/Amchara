@@ -2,7 +2,7 @@ import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { assert, expect } from 'chai';
 import { spy } from 'sinon';
-import { Container, Specialities, Speciality, Edit, Quarter, SignOut} from '../../../src/components/Styles.jsx';
+import { Container,Edit, Quarter, SignOut} from '../../../src/components/Styles.jsx';
 import {Dashboard} from '../../../src/components/Dashboard.jsx';
 
 
@@ -21,24 +21,9 @@ describe('<Dashboard />', () => {
       editProfile={sinon.spy()}
     />);
 
-  it('should render a Container component', () => {
+  it('should render 2 Container component', () => {
     expect(testDashboard
       .find(Container))
-      .to
-      .have
-      .length(2);
-    });
-
-  it('should render a Specialities', () => {
-    expect(testDashboard
-      .find(Specialities))
-      .to
-      .have
-      .length(1);
-    });
-  it('should render a Speciality', () => {
-    expect(testDashboard
-      .find(Speciality))
       .to
       .have
       .length(2);

@@ -42,7 +42,6 @@ margin-top: 5%;
 export const Specialities = styled.div`
 display: flex;
 width: 50%;
-justify-content: space-around;
 flex-wrap: wrap;
 `
 
@@ -77,7 +76,7 @@ width: 25%;
 `
 
 export const SignOut = styled.button`
-width: 20%;
+width: 10%;
 margin-left: 77%;
 margin-top: 5%;
 `
@@ -127,7 +126,7 @@ font-weight: bold;
 }
 `
 
-export const UserDetails = styled.p`
+export const Infos = styled.p`
   text-align: center;
 `
 

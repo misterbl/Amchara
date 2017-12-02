@@ -1,10 +1,10 @@
 const INIT = {
   data: null,
-  description: 'Your name here',
+  description: 'not provided',
   dob: 'not provided',
   email: 'not provided',
   gender: 'not provided',
-  name: 'not provided',
+  name: 'Your name here',
   password: 'not provided',
   website: 'not provided',
   specialities: [],
