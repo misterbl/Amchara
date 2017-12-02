@@ -40,7 +40,7 @@ margin-top: 5%;
 
 export const Specialities = styled.div`
 display: flex;
-width: 50%;
+width: 30%;
 justify-content: space-around;
 flex-wrap: wrap;
 `
