@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const BottomButtons = () => (
   <div className="flex">
     <div className="col-xs-12 col-sm-4">

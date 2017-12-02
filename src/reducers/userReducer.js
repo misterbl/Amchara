@@ -11,7 +11,6 @@ const INIT = {
   registered: false,
 };
 
-
 export default (state = INIT, { type, data, description, dob, email, gender, name, password, specialities, editing , website, registered}) => {
   switch (type) {
     case 'SAVE_USER_DETAILS':

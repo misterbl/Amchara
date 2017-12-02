@@ -5,10 +5,10 @@ import { Form, InputField, Flex } from './Styles.jsx';
 
 
 export class EditProfileForm extends Component {
-
   cancel = () =>{
     redirect(`/dashboard`);
   }
+
   render() {
     const {description, dob, email, gender, name, password, website} = this.props.user
     return (

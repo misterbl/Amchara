@@ -4,7 +4,7 @@ import { redirect } from '../actions/routeActions';
 import EditProfileForm from './EditProfileForm';
 import AddSpeciality from './AddSpeciality';
 import { editProfile, addSpeciality } from '../actions/userActions';
-import { Container, Speciality, Flex, Red, Div } from './Styles.jsx';
+import { Container, Speciality, Flex, Div, ErrorMessage } from './Styles.jsx';
 
 export class EditProfile extends Component {
 
@@ -60,7 +60,7 @@ export class EditProfile extends Component {
                         <div className="red"><strong>Please select a speciality </strong></div>
                       }
                       {this.state.alreadySelected &&
-                        <Red><strong>Speciality already in your list </strong></Red>}
+                        <ErrorMessage><strong>Speciality already in your list </strong></ErrorMessage>}
                         <EditProfileForm user={this.props.user} onSubmit={this.editProfile} />
                       </Container>
                     </div>
@@ -74,7 +74,6 @@ export class EditProfile extends Component {
                 <button onClick={this.backHome} className="btn-success"><span className="fa fa-user"></span> Back home</button>
               </div>}
             </Container>
-
           );
         }
       }

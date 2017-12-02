@@ -5,7 +5,6 @@ import { spy } from 'sinon';
 import {LogSignForm} from '../../../src/components/LogSignForm';
 import { Form, InputField, Button} from '../../../src/components/Styles.jsx';
 
-
 describe('<LogSignForm />', () => {
   const testLogSignForm = shallow(
     <LogSignForm />);

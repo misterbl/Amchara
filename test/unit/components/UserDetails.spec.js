@@ -5,7 +5,6 @@ import { spy } from 'sinon';
 import { Specialities, Speciality, Category, Infos, Card} from '../../../src/components/Styles.jsx';
 import {UserDetails} from '../../../src/components/UserDetails.jsx';
 
-
 describe('<UserDetails />', () => {
   const props = {
     user: {
@@ -15,7 +14,6 @@ describe('<UserDetails />', () => {
 
   const testUserDetails = shallow(
     <UserDetails {...props}/>);
-
 
   it('should render a Specialities', () => {
     expect(testUserDetails

@@ -67,8 +67,6 @@ export default {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       excludeChunks: [
-        'poppins_regular',
-        'logo_svg',
       ],
     }),
     new ManifestPlugin({
