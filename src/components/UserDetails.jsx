@@ -9,8 +9,7 @@ export class UserDetails extends Component {
       {title: "About me", text: description},
       {title: "Gender", text: gender},
       {title: "Date of birth", text: dob},
-      {title: "Email", text: email},
-      {title: "Website", text: website}
+      {title: "Email", text: email}
     ]
     return (
           <div>
@@ -24,6 +23,12 @@ export class UserDetails extends Component {
                 <div className="w3-container"><Infos>{category.text}</Infos></div>
               </Card><br/></div>
             ))}
+            <Card className="w3-card-4" >
+              <header className="w3-container">
+                <Category>"Website"</Category>
+              </header>
+              <div className="w3-container"><a style={{marginLeft: '30%'}} href={website}>{website}</a></div>
+            </Card><br/>
             <Card className="w3-card-4" >
               <header className="w3-container">
                 <Category>Specialities</Category>
