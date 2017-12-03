@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import EditProfileForm from './EditProfileForm';
 import AddSpeciality from './AddSpeciality';
 import {createSpecialities, redirect, editProfile, addSpeciality, retrieveUserInfo} from '../actions/userActions';
-import { Container, Speciality, Flex, Div, ErrorMessage } from './Styles.jsx';
+import { Container, Speciality, Specialities, Div, ErrorMessage } from './Styles.jsx';
 
 export class EditProfile extends Component {
 
@@ -49,12 +49,12 @@ export class EditProfile extends Component {
                     <Container className="col-xs-12 col-sm-8">
                       <div style={{display: 'flex'}}>
                         <AddSpeciality onSubmit={this.addSpeciality} specialitiesList={specialitiesList}/>
-                        <Flex><div className="speciality">Specialities:</div>
+                        <Specialities><div className="speciality">Specialities:</div>
                         {specialities && specialities.map(speciality => (
                           <div key={speciality} >
                             <Speciality  className="label label-info tags">{speciality}</Speciality>
                           </div>
-                        ))}</Flex>
+                        ))}</Specialities>
                       </div>
                       {!this.state.selected &&
                         <div className="red"><strong>Please select a speciality </strong></div>
