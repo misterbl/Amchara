@@ -27,7 +27,6 @@ export class Auth extends Component {
   else {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((data) => {
-        console.log(data);
         this.props.redirect(`/dashboard`);
         this.props.saveData(data);})
         .then((data) => {
