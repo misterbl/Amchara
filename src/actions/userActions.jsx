@@ -25,6 +25,12 @@ export const saveData = (data) => ({
   data,
   email: data.email,
   specialities: [],
+  description: 'not provided',
+  dob: 'not provided',
+  gender: 'not provided',
+  name: 'Your name here',
+  password: 'not provided',
+  website: 'not provided',
 });
 
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Logo from '../images/amchar_logo.png';
 import BottomButtons from './BottomButtons';
 import UserDetails from './UserDetails';
-import { redirect, saveUserDetails, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
+import { redirect, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
 import {Container,Edit, Quarter, SignOut, MainContainer, Div} from './Styles.jsx'
 
 export class Dashboard extends Component {
@@ -60,7 +60,6 @@ export class Dashboard extends Component {
     });
 
     const mapDispatchToProps = {
-      saveUserDetails,
       redirect,
       retrieveUserInfo,
       signOut,

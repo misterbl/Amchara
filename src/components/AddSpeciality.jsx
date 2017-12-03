@@ -11,6 +11,7 @@ export const AddSpeciality = ({ handleSubmit, specialitiesList }) => (
             label='Specialities'
             hinttext="Select..."
           >
+            <option label="Choose a speciality"></option>
           {specialitiesList && specialitiesList.map(speciality => (
             <option key={speciality} value={`${speciality}`}>{speciality}</option>
           ))}

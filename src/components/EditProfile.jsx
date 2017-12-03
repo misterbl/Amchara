@@ -24,8 +24,7 @@ export class EditProfile extends Component {
   addSpeciality = (values) => {
     this.setState({selected: true, alreadySelected: false})
     const newSpeciality = values.editSpecialities;
-
-    if((typeof this.props.user.specialities !== "undefined") && (typeof newSpeciality !== "undefined")){
+    if((typeof newSpeciality !== "undefined")){
     if(this.props.user.specialities.indexOf(newSpeciality) === -1){
       this.props.addSpeciality(newSpeciality, this.props.user.specialities)
     }
@@ -34,22 +33,8 @@ export class EditProfile extends Component {
     }
     else {this.setState({selected: false});}
   }
-  else if ((typeof this.props.user.specialities === "undefined") && (typeof newSpeciality !== "undefined")) {
-    this.props.createSpecialities();
-    this.addfirstSpeciality(newSpeciality)
-  }
-}
-addfirstSpeciality = (newSpeciality) => {
-  if((typeof this.props.user.specialities !== "undefined") && (typeof newSpeciality !== "undefined")){
-  if(this.props.user.specialities.indexOf(newSpeciality) === -1){
-    this.props.addSpeciality(newSpeciality, this.props.user.specialities)
-  }
-  else if (this.props.user.specialities.indexOf(newSpeciality) >  -1) {
-    this.setState({alreadySelected: true});
-  }
-  else {this.setState({selected: false});}
-}
-}
+ }
+
   render() {
     const {data, description, specialities} = this.props.user;
     const specialitiesList = ['Weight Management', 'Arthritis', 'Gut Health', 'Female Hormones', 'Diabetes', 'Adrenal Stress', 'Fertility'];

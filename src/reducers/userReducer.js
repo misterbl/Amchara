@@ -23,13 +23,19 @@ export default (state = INIT, { type, data, description, dob, email, gender, nam
         password,
         website,
         specialities,
-        registered,
       };
       case 'SAVE_DATA':
         return {
           ...state,
           data,
+          description,
+          dob,
           email,
+          gender,
+          name,
+          password,
+          website,
+          specialities,
         };
       case 'UPDATE_SPECIALITIES':
         return {
