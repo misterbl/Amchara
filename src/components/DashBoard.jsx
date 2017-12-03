@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { redirect } from '../actions/routeActions';
 import Logo from '../images/amchar_logo.png';
 import BottomButtons from './BottomButtons';
 import UserDetails from './UserDetails';
-import { saveUserDetails, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
+import { redirect, saveUserDetails, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
 import {Container,Edit, Quarter, SignOut, MainContainer, Div} from './Styles.jsx'
 
 export class Dashboard extends Component {
 
   componentWillMount() {
-    if(this.props.user.data && this.props.user.data.uid) this.props.retrieveUserInfo(this.props.user.data.uid)
-    else if (!this.props.user.registered){
-      this.props.editProfile(null, this.props.user);
-    }
+    if(this.props.user.data && this.props.user.data.uid) this.props.retrieveUserInfo(this.props.user);
   }
 
   edit = () => {
     this.props.redirect(`/edit`);
-  }
-
-  signOut = () => {
-    localStorage.clear();
-    this.props.signOut();
-    this.props.redirect(`/`);
   }
 
   backHome = () => {
@@ -32,7 +22,7 @@ export class Dashboard extends Component {
   }
 
   render() {
-    const {data, description, dob, email, gender, name, website, specialities} = this.props.user
+    const {data, description} = this.props.user
     return (
       <MainContainer style={{width: '150%', marginLeft: '8%'}}>
         {data &&
@@ -48,7 +38,7 @@ export class Dashboard extends Component {
                     <Quarter className="col-xs-12 col-sm-4 text-center">
                       <img src={Logo} alt="" className="center-block img-responsive" />
                     </Quarter>
-                    <SignOut onClick={this.signOut} className="btn-danger signOut"><span className="fa fa-user"></span> Sign out </SignOut>
+                    <SignOut onClick={() => {this.props.signOut()}} className="btn-danger signOut"><span className="fa fa-user"></span> Sign out </SignOut>
                   </div>
                   <BottomButtons />
                 </div>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { redirect } from '../actions/routeActions';
 import firebase from '../firebase';
-import {saveData} from '../actions/userActions';
+import {redirect, saveData, editProfile} from '../actions/userActions';
 import LogSignForm from './LogSignForm';
 import { Forms, Modal, ModalContent, ModalHead, Close, ErrorMessage } from './Styles.jsx';
 
@@ -28,9 +27,14 @@ export class Auth extends Component {
   else {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((data) => {
+        console.log(data);
         this.props.redirect(`/dashboard`);
         this.props.saveData(data);})
+        .then((data) => {
+          this.props.editProfile(null, this.props.user);
+        })
         .catch(() => {});
+
   }
 }
 
@@ -73,6 +77,7 @@ user: state.user,
 const mapDispatchToProps = {
 redirect,
 saveData,
+editProfile,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

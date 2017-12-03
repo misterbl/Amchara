@@ -12,7 +12,7 @@ export const AddSpeciality = ({ handleSubmit, specialitiesList }) => (
             hinttext="Select..."
           >
           {specialitiesList && specialitiesList.map(speciality => (
-            <option value={`${speciality}`}>{speciality}</option>
+            <option key={speciality} value={`${speciality}`}>{speciality}</option>
           ))}
           </InputField>
             <button type="submit" className="btn-info"><span className="fa fa-user"></span> Add </button>

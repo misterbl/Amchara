@@ -16,7 +16,7 @@ export class UserDetails extends Component {
           <div>
             <h2>{name}</h2>
             {categories.map(category => (
-              <div>
+              <div key={category.title}>
               <Card className="w3-card-4" >
                 <header className="w3-container">
                   <Category>{category.title}</Category>
@@ -31,7 +31,7 @@ export class UserDetails extends Component {
               <div className="w3-container"><Infos>
                 <Specialities>
                   {specialities && specialities.map(speciality => (
-                    <div>
+                    <div key={speciality}>
                       <Speciality className="label label-info tags">{speciality}</Speciality>
                       <br/></div>
                     ))}

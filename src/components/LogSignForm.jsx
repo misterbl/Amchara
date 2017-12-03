@@ -4,8 +4,8 @@ import { Form, InputField, Button } from './Styles.jsx';
 
 export const LogSignForm = ({ handleSubmit, text }) => (
         <Form onSubmit={handleSubmit}>
-          <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <div className="input-group">
+          <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
           <InputField
             className="form-control"
             component="input"
@@ -14,8 +14,8 @@ export const LogSignForm = ({ handleSubmit, text }) => (
             label='Email Address'
             placeholder='email address'
           /></div>
-          <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <div className="input-group">
+          <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
           <InputField
             className="form-control"
             component="input"

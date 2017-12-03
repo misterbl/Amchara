@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import { redirect } from '../actions/routeActions';
+import { redirect } from '../actions/userActions';
 import { Form, InputField, Flex } from './Styles.jsx';
 
 

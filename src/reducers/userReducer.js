@@ -8,7 +8,6 @@ const INIT = {
   password: 'not provided',
   website: 'not provided',
   specialities: [],
-  registered: false,
 };
 
 export default (state = INIT, { type, data, description, dob, email, gender, name, password, specialities, editing , website, registered}) => {
@@ -37,6 +36,11 @@ export default (state = INIT, { type, data, description, dob, email, gender, nam
           ...state,
           specialities,
         };
+        case 'CREATE_SPECIALITIES_ARRAY':
+          return {
+            ...state,
+            specialities,
+          };
         case 'SIGN_OUT':
           return {};
     default:

@@ -1,5 +1,11 @@
 import firebase from '../firebase';
+import { push } from 'react-router-redux';
 
+export const redirect = (route, goTo = push) => (
+  dispatch => (
+    dispatch(goTo(route))
+  )
+);
 
 export const saveUserDetails = (description, dob, email, gender, name, password, website, specialities, registered) => ({
   type: 'SAVE_USER_DETAILS',
@@ -21,18 +27,24 @@ export const saveData = (data) => ({
   specialities: [],
 });
 
-export const signOut = () => ({
-  type: 'SIGN_OUT',
-});
 
-export const retrieveUserInfo = (id) => (
+export const signOut = () => (
+dispatch => {
+  localStorage.clear();
+  dispatch({type: 'SIGN_OUT'});
+  dispatch(push('/'))
+}
+);
+
+export const retrieveUserInfo = (props) => (
   dispatch => {
-    firebase.database().ref('users/' + id).on("value", function(snapshot) {
-      if(snapshot) {
+    firebase.database().ref('users/' + props.data.uid).on("value", function(snapshot) {
+      if(snapshot.val()) {
         dispatch(saveUserDetails(snapshot.val().description, snapshot.val().dob,
       snapshot.val().email, snapshot.val().gender, snapshot.val().name,
       snapshot.val().password, snapshot.val().website, snapshot.val().specialities, snapshot.val().registered));
-    }}, function (errorObject) {
+    }
+       else{editProfile(null, props)}}, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
   }
@@ -63,8 +75,15 @@ export const editProfile = (values, props) => (
     }
   })
 
+  export const createSpecialities = () => ({
+    type: 'CREATE_SPECIALITIES_ARRAY',
+    specialities: [],
+  });
+
+
+
   export const addSpeciality = (newSpeciality, specialities) => (
     dispatch => {
-      specialities.push(newSpeciality);
+      if(newSpeciality) specialities.push(newSpeciality);
       dispatch({type: 'UPDATE_SPECIALITIES', specialities});
     });

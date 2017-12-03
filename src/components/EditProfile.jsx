@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { redirect } from '../actions/routeActions';
 import EditProfileForm from './EditProfileForm';
 import AddSpeciality from './AddSpeciality';
-import { editProfile, addSpeciality } from '../actions/userActions';
+import {createSpecialities, redirect, editProfile, addSpeciality, retrieveUserInfo} from '../actions/userActions';
 import { Container, Speciality, Flex, Div, ErrorMessage } from './Styles.jsx';
 
 export class EditProfile extends Component {
@@ -12,7 +11,6 @@ export class EditProfile extends Component {
     super()
     this.state = {selected: true, alreadySelected: false };
   }
-
   backHome = () => {
     localStorage.clear();
     this.props.redirect(`/`);
@@ -26,7 +24,9 @@ export class EditProfile extends Component {
   addSpeciality = (values) => {
     this.setState({selected: true, alreadySelected: false})
     const newSpeciality = values.editSpecialities;
-    if(newSpeciality && this.props.user.specialities && (this.props.user.specialities.indexOf(newSpeciality) === -1)){
+
+    if((typeof this.props.user.specialities !== "undefined") && (typeof newSpeciality !== "undefined")){
+    if(this.props.user.specialities.indexOf(newSpeciality) === -1){
       this.props.addSpeciality(newSpeciality, this.props.user.specialities)
     }
     else if (this.props.user.specialities.indexOf(newSpeciality) >  -1) {
@@ -34,7 +34,22 @@ export class EditProfile extends Component {
     }
     else {this.setState({selected: false});}
   }
-
+  else if ((typeof this.props.user.specialities === "undefined") && (typeof newSpeciality !== "undefined")) {
+    this.props.createSpecialities();
+    this.addfirstSpeciality(newSpeciality)
+  }
+}
+addfirstSpeciality = (newSpeciality) => {
+  if((typeof this.props.user.specialities !== "undefined") && (typeof newSpeciality !== "undefined")){
+  if(this.props.user.specialities.indexOf(newSpeciality) === -1){
+    this.props.addSpeciality(newSpeciality, this.props.user.specialities)
+  }
+  else if (this.props.user.specialities.indexOf(newSpeciality) >  -1) {
+    this.setState({alreadySelected: true});
+  }
+  else {this.setState({selected: false});}
+}
+}
   render() {
     const {data, description, specialities} = this.props.user;
     const specialitiesList = ['Weight Management', 'Arthritis', 'Gut Health', 'Female Hormones', 'Diabetes', 'Adrenal Stress', 'Fertility'];
@@ -51,7 +66,7 @@ export class EditProfile extends Component {
                         <AddSpeciality onSubmit={this.addSpeciality} specialitiesList={specialitiesList}/>
                         <Flex><div className="speciality">Specialities:</div>
                         {specialities && specialities.map(speciality => (
-                          <div >
+                          <div key={speciality} >
                             <Speciality  className="label label-info tags">{speciality}</Speciality>
                           </div>
                         ))}</Flex>
@@ -86,6 +101,8 @@ export class EditProfile extends Component {
         redirect,
         addSpeciality,
         editProfile,
+        createSpecialities,
+        retrieveUserInfo,
       };
 
       export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);
