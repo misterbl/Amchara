@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Specialities, Speciality, Category, Infos, Card} from './Styles.jsx'
+import {Specialities, Speciality, Card} from './Styles.jsx'
 
 export class UserDetails extends Component {
   render() {
@@ -18,22 +18,22 @@ export class UserDetails extends Component {
               <div key={category.title}>
               <Card className="w3-card-4" >
                 <header className="w3-container">
-                  <Category>{category.title}</Category>
+                  <h3>{category.title}</h3>
                 </header>
-                <div className="w3-container"><Infos>{category.text}</Infos></div>
+                <div className="w3-container"><p>{category.text}</p></div>
               </Card><br/></div>
             ))}
             <Card className="w3-card-4" >
               <header className="w3-container">
-                <Category>"Website"</Category>
+                <h3>"Website"</h3>
               </header>
-              <div className="w3-container"><a style={{marginLeft: '30%'}} href={website}>{website}</a></div>
+              <div className="w3-container"><a target="_blank" href={website}>{website}</a></div>
             </Card><br/>
             <Card className="w3-card-4" >
               <header className="w3-container">
-                <Category>Specialities</Category>
+                <h3>Specialities</h3>
               </header>
-              <div className="w3-container"><Infos>
+              <div className="w3-container"><p>
                 <Specialities>
                   {specialities && specialities.map(speciality => (
                     <div key={speciality}>
@@ -41,7 +41,7 @@ export class UserDetails extends Component {
                       <br/></div>
                     ))}
                   </Specialities>
-              </Infos></div>
+              </p></div>
             </Card>
           </div>
         );

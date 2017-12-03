@@ -152,12 +152,7 @@ font-weight: bold;
   cursor: pointer;
 }
 `
-export const Infos = styled.p`
-  text-align: center;
-`
-export const Category = styled.h3`
-  text-align: center;
-`
 export const Card = styled.div`
 border: 2px solid #A5CB63;
+  text-align: center;
 `
