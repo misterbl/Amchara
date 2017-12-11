@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './styles.css';
 import AddSpecialityForm from './AddSpecialityForm';
+import NotLogedIn from './NotLogedIn';
 import {createSpecialities, redirect, addSpeciality} from '../actions/userActions';
 
 export class AddSpecialities extends Component {
@@ -34,7 +35,7 @@ export class AddSpecialities extends Component {
   }
 
   render() {
-    const {data, description, specialities} = this.props.user;
+    const {data, specialities} = this.props.user;
     const specialitiesList = ['Weight Management', 'Arthritis', 'Gut Health', 'Female Hormones', 'Diabetes', 'Adrenal Stress', 'Fertility'];
     return (
       <div className="main-container">
@@ -57,11 +58,7 @@ export class AddSpecialities extends Component {
             }</div>
             <button style={{marginLeft: '0px'}} className="button" onClick={this.backDashboard}> Done </button>
           </div>}
-          {!data &&
-            <div style={{textAlign: 'center'}}>
-              <h3><strong>You must be logged in the view this page</strong></h3><br/>
-              <button onClick={this.backHome} className="button"> Back home</button>
-            </div>}
+          {!data && <NotLogedIn />}
           </div>
         </div>
       </div>

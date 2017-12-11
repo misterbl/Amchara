@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import './styles.css';
-import firebase from '../firebase';
 
 
 export const LogSignForm = ({ handleSubmit, text }) => (

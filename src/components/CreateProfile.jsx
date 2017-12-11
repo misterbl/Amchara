@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {redirect, createProfile} from '../actions/userActions';
+import NotLogedIn from './NotLogedIn';
 import CreateProfileForm from './CreateProfileForm';
 
 export class CreateProfile extends Component {
@@ -16,11 +17,7 @@ render() {
      {data &&
        <CreateProfileForm onSubmit={this.validate}/>
      }
-       {!data &&
-         <div style={{textAlign: 'center'}}>
-           <h3><strong>You must be logged in the view this page</strong></h3><br/>
-           <button onClick={this.backHome} className="button"> Back home</button>
-         </div>}
+       {!data && <NotLogedIn />}
     </div>
     )
   }

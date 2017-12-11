@@ -19,7 +19,7 @@ export class Login extends Component {
     .then((data) => {
       this.props.saveData(data);
       this.props.redirect(`/dashboard`);})
-      .catch(() => {this.setState({error: true});
+      .catch(() => {console.log("hello");this.setState({error: true});
     })
   }
 

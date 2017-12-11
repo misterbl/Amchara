@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import './styles.css';
 import {redirect, createProfile} from '../actions/userActions';

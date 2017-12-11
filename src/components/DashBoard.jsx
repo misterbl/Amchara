@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './styles.css';
+import NotLogedIn from './NotLogedIn';
 import { redirect, retrieveUserInfo, signOut } from '../actions/userActions';
 
 
@@ -55,11 +56,7 @@ export class Dashboard extends Component {
                   <div onClick={() => {this.props.signOut()}} className="sign-out">Sign out</div>
                 </div>
               </div>}
-              {!data &&
-                <div style={{textAlign: 'center'}}>
-                  <h3><strong>You must be logged in the view this page</strong></h3><br/>
-                  <button onClick={this.backHome} className="button"> Back home</button>
-                </div>}
+              {!data && <NotLogedIn />}
               </div>
             );
           }

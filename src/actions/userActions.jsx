@@ -67,7 +67,6 @@ export const createProfile = (values, props) => (
     firebase.database().ref('users/' + props.data.uid).set({
       description: 'not specified',
       dob: 'not specified',
-      telephone: 'not specified',
       website: 'not specified',
       firstName: values.firstName ? values.firstName : 'not specified',
       surname: values.surname ? values.surname : 'not specified',
