@@ -47,14 +47,18 @@ var modal = document.getElementById(tag);
 modal.style.display = "none";
 }
 
+loginSignup = (tag) => {
+this.props.redirect(`/${tag}`);
+}
+
 render() {
 const {type, text} = this.props
 return (
       <div>
-        <button className="btn-success" onClick={() => this.showModal(type)} id="myBtn">{this.props.text}</button>
-        <Modal id={type}>
+        <button className="btn-success" onClick={() => this.loginSignup(type)} id="myBtn">{this.props.text}</button>
+        <div id={type}>
           <ModalContent>
-            <Close onClick={() => this.hideModal(type)}>&times;</Close>
+            <Close onClick={() => this.hideModal(type)}>&times;</Close> */}
               <ModalHead><br/>Please {text}</ModalHead>
               {this.state.error && text === "Log in" && <ErrorMessage>invalid email or password</ErrorMessage>}
               {this.state.error && text === "Sign up" && <ErrorMessage>password must be 8 characters minimum</ErrorMessage>}
@@ -62,7 +66,7 @@ return (
               <LogSignForm text={text} onSubmit={this.validate} />
             </Forms>
           </ModalContent>
-        </Modal>
+        </div>
       </div>
 );
 }

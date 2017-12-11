@@ -6,7 +6,22 @@ export const Form = styled.form`
 padding: 20px;
 `
 export const InputField = styled(Field)`
-background-color: #fcf2b3;
+  background: transparent;
+  margin-top: 25px;
+  ::-webkit-text-fill-color { /* Chrome */
+color: red;
+}
+:-ms-input-placeholder { /* IE 10+ */
+color: red;
+}
+::-moz-placeholder { /* Firefox 19+ */
+color: red;
+opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+color: red;
+opacity: 1;
+}
 `
 export const Button = styled.button`
 background-color: #A5CB63;
@@ -15,14 +30,15 @@ width: 53%;
 margin-top: 3%;
 `
 export const HomeContainer = styled.div`
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #6FA813), color-stop(10, #406843), color-stop(80, #6FA813), color-stop(100, #406843));
 background-size: cover;
 background-repeat: no-repeat;
-position: absolute;
+position: fixed;
 width: 100%;
 height: 100%;
-@media (max-width: 420px) {
+${'' /* @media (max-width: 420px) {
     height: 30% }
-  }
+  } */}
 `
 export const Div = styled.div`
 @media (max-width: 420px) {
@@ -40,14 +56,22 @@ margin-top: 20px;
     width: 100%;
   }
 `
+// export const MainContainer = styled.div`
+// width: 75%;
+// margin-top: 20px;
+// width: 150%;
+// margin-left: 8%;
+// @media (max-width: 420px) {
+//     width: 87%;
+//   }
+// `
+
 export const MainContainer = styled.div`
-width: 75%;
-margin-top: 20px;
-width: 150%;
-margin-left: 8%;
-@media (max-width: 420px) {
-    width: 87%;
-  }
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #406843), color-stop(10, #6FA813), color-stop(100, #406843));
+background-size: cover;
+background-repeat: no-repeat;
+position: absolute;
+width: 100%;
 `
 export const Forms = styled.div`
 display: flex;
@@ -64,6 +88,7 @@ flex-wrap: wrap;
 `
 export const Speciality = styled.span`
 margin-right: : 6px;
+background-color: grey;
 `
 export const Edit = styled.button`
 width: 20%;
@@ -74,15 +99,20 @@ margin-top: 10%;
   }
 `
 export const LogSign = styled.div`
-margin-left: 80px;
-margin-top: 24px;
+color: white;
 display: flex;
-justify-content: space-between;
-width: 130px;
-@media (max-width: 420px) {
-  margin-left: 11px;
-  margin-top: 18px }
-  }
+flex-direction: column;
+font-size: 34px;
+position: absolute;
+top: 34%;
+left: 20%;
+`
+export const LogSignButton = styled.button`
+border: 1px solid white;
+width: 132%;
+background-color: transparent;
+margin-left: -41px;
+margin-top: 25px;
 `
 export const Flex = styled.div`
 display: flex;

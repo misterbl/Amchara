@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Logo from '../images/amchar_logo.png';
 import EditProfileForm from './EditProfileForm';
 import AddSpeciality from './AddSpeciality';
 import {createSpecialities, redirect, editProfile, addSpeciality, retrieveUserInfo} from '../actions/userActions';
-import { Container, Speciality, Specialities, Div, ErrorMessage } from './Styles.jsx';
+import { HomeContainer, Container, Speciality, Specialities, Div, ErrorMessage } from './Styles.jsx';
 
 export class EditProfile extends Component {
 
@@ -39,41 +40,34 @@ export class EditProfile extends Component {
     const {data, description, specialities} = this.props.user;
     const specialitiesList = ['Weight Management', 'Arthritis', 'Gut Health', 'Female Hormones', 'Diabetes', 'Adrenal Stress', 'Fertility'];
     return (
-      <Container style={{width: '150%', marginLeft: '8%', marginTop: '57px'}}>
-        {data &&
-          <div className="row">
-            <Div className="col-md-6">
-              <div className="panel panel-default">
-                <div className="panel-body">
-                  <div className="row">
-                    <Container className="col-xs-12 col-sm-8">
-                      <div style={{display: 'flex'}}>
-                        <AddSpeciality onSubmit={this.addSpeciality} specialitiesList={specialitiesList}/>
-                        <Specialities><div className="speciality">Specialities:</div>
-                        {specialities && specialities.map(speciality => (
-                          <div key={speciality} >
-                            <Speciality  className="label label-info tags">{speciality}</Speciality>
-                          </div>
-                        ))}</Specialities>
-                      </div>
-                      {!this.state.selected &&
-                        <div className="red"><strong>Please select a speciality </strong></div>
-                      }
-                      {this.state.alreadySelected &&
-                        <ErrorMessage><strong>Speciality already in your list </strong></ErrorMessage>}
-                        <EditProfileForm user={this.props.user} onSubmit={this.editProfile} />
-                      </Container>
-                    </div>
-                  </div>
+
+      <HomeContainer>
+      <div style={{ backgroundImage: `url(${Logo})`, height: '100%', backgroundRepeat: 'inherit', marginTop: '50px', marginLeft: '7%'}} >
+        {data && <div>
+            <div style={{display: 'flex', backgroundColor: '#F1F1F1', width: '93%'}}>
+              <AddSpeciality onSubmit={this.addSpeciality} specialitiesList={specialitiesList}/>
+              <Specialities><div className="speciality">Specialities:</div>
+              {specialities && specialities.map(speciality => (
+                <div key={speciality} >
+                  <Speciality>{speciality}</Speciality>
                 </div>
-              </Div>
-            </div>}
+              ))}</Specialities>
+            </div>
+            <div>{!this.state.selected &&
+              <div className="red"><strong>Please select a speciality </strong></div>
+            }</div>
+            <div>{this.state.alreadySelected &&
+              <ErrorMessage><strong>Speciality already in your list </strong></ErrorMessage>
+            }</div>
+              <EditProfileForm user={this.props.user} onSubmit={this.editProfile} />
+          </div>}
             {!data &&
               <div>
                 <h3><strong>You must be logged in the view this page</strong> {description}</h3><br/>
                 <button onClick={this.backHome} className="btn-success"><span className="fa fa-user"></span> Back home</button>
               </div>}
-            </Container>
+                </div>
+            </HomeContainer>
           );
         }
       }

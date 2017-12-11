@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { redirect } from '../actions/userActions';
-import { Form, InputField, Flex } from './Styles.jsx';
+import { Form, InputField, Flex, Button } from './Styles.jsx';
 
 
 export class EditProfileForm extends Component {
@@ -10,24 +10,24 @@ export class EditProfileForm extends Component {
   }
 
   render() {
-    const {description, dob, email, gender, name, password, website} = this.props.user
+    const {description, dob, email, gender, firstName, surname, website} = this.props.user
     return (
         <Form className="form-group" onSubmit={this.props.handleSubmit}>
           <InputField
             className="form-control"
             component="input"
             type="text"
-            name="editName"
-            label='name'
-            placeholder={`Name: ${name}`}
+            name="editFirstName"
+            label='firstName'
+            placeholder={`Firstname: ${firstName}`}
           />
           <InputField
             className="form-control"
             component="input"
-            type="password"
-            name="editPassword"
-            label='Password'
-            placeholder={`Password: ${password}`}
+            type="text"
+            name="editSurname"
+            label='surname'
+            placeholder={`Surname: ${surname}`}
           />
           <InputField
             className="form-control"
@@ -70,8 +70,8 @@ export class EditProfileForm extends Component {
             placeholder={`Description: ${description}`}
           />
           <Flex>
-          <button type="submit" className="btn-info"><span className="fa fa-user"></span> Save </button>
-          <button onClick={this.cancel} style={{marginLeft: '5%'}} className="btn-danger"><span className="fa fa-user"></span> Cancel </button>
+          <Button type="submit" >Save </Button>
+          <Button onClick={this.cancel} style={{marginLeft: '5%'}}> Cancel </Button>
         </Flex>
         </Form>
     );

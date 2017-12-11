@@ -7,14 +7,18 @@ export const redirect = (route, goTo = push) => (
   )
 );
 
-export const saveUserDetails = (description, dob, email, gender, name, password, website, specialities, registered) => ({
+export const saveUserDetails = (description, dob, email, gender, firstName,
+  surname, companyName, telephone, location, website, specialities, registered) => ({
   type: 'SAVE_USER_DETAILS',
   description,
   dob,
   email,
   gender,
-  name,
-  password,
+  firstName,
+  surname,
+  companyName,
+  telephone,
+  location,
   website,
   specialities: specialities ? specialities : [],
   registered,
@@ -47,30 +51,46 @@ export const retrieveUserInfo = (props) => (
     firebase.database().ref('users/' + props.data.uid).on("value", function(snapshot) {
       if(snapshot.val()) {
         dispatch(saveUserDetails(snapshot.val().description, snapshot.val().dob,
-      snapshot.val().email, snapshot.val().gender, snapshot.val().name,
-      snapshot.val().password, snapshot.val().website, snapshot.val().specialities, snapshot.val().registered));
+      snapshot.val().email, snapshot.val().gender, snapshot.val().firstName, snapshot.val().surname,
+      snapshot.val().companyName, snapshot.val().telephone, snapshot.val().location,
+      snapshot.val().website, snapshot.val().specialities, snapshot.val().registered));
     }
        else{editProfile(null, props)}}, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
   }
 );
+
+export const createProfile = (values, props) => (
+  dispatch => {
+    firebase.database().ref('users/' + props.data.uid).set({
+      firstName: values.firstName,
+      surname: values.surname,
+      companyName: values.companyName,
+      email: values.email,
+      telephone: values.telephone,
+      location: values.location,
+      registered: true,
+    })
+  }
+)
+
 export const editProfile = (values, props) => (
   dispatch => {
-    const {name, email, password, dob, gender, description, specialities, website} = props
-    const editName = values && values.editName ? values.editName : name;
+    const {firstName, surname, email, dob, gender, description, specialities, website} = props
+    const editFirstName = values && values.editFirstName ? values.editFirstName : firstName;
+    const editSurname = values && values.editSurname ? values.editSurname : surname;
     const editEmail = values && values.editEmail ? values.editEmail : email;
     const editWebsite = values && values.editWebsite ? values.editWebsite : website;
-    const editPassword = values && values.editPassword ? values.editPassword : password;
     const editDob = values && values.editDob ? values.editDob : dob;
     const editGender = values && values.editGender ? values.editGender : gender;
     const editDescription = values && values.editDescription ? values.editDescription : description;
     const editSpecialities = !specialities ? [] : specialities;
     if(props.data) {
       firebase.database().ref('users/' + props.data.uid).set({
-        name: editName,
+        firstName: editFirstName,
+        surname: editSurname,
         email: editEmail,
-        password: editPassword,
         website: editWebsite,
         dob: editDob,
         gender: editGender,

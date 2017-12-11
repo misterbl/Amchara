@@ -1,16 +1,19 @@
 const INIT = {
   data: null,
+  firstName: '',
+  surname: '',
+  companyName: '',
+  telephone: '',
+  location: '',
   description: 'not provided',
   dob: 'not provided',
   email: 'not provided',
   gender: 'not provided',
-  name: 'Your name here',
-  password: 'not provided',
   website: 'not provided',
   specialities: [],
 };
 
-export default (state = INIT, { type, data, description, dob, email, gender, name, password, specialities, editing , website, registered}) => {
+export default (state = INIT, { type, data, companyName, location, telephone, description, dob, email, gender, surname, firstName, password, specialities, editing , website, registered}) => {
   switch (type) {
     case 'SAVE_USER_DETAILS':
       return {
@@ -19,8 +22,11 @@ export default (state = INIT, { type, data, description, dob, email, gender, nam
         dob,
         email,
         gender,
-        name,
-        password,
+        surname,
+        firstName,
+        telephone,
+        location,
+        companyName,
         website,
         specialities,
       };
@@ -32,8 +38,11 @@ export default (state = INIT, { type, data, description, dob, email, gender, nam
           dob,
           email,
           gender,
-          name,
-          password,
+          surname,
+          firstName,
+          telephone,
+          location,
+          companyName,
           website,
           specialities,
         };
