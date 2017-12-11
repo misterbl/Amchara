@@ -7,13 +7,12 @@ export const redirect = (route, goTo = push) => (
   )
 );
 
-export const saveUserDetails = (description, dob, email, gender, firstName,
+export const saveUserDetails = (description, dob, email, firstName,
   surname, companyName, telephone, location, website, specialities, registered) => ({
   type: 'SAVE_USER_DETAILS',
   description,
   dob,
   email,
-  gender,
   firstName,
   surname,
   companyName,
@@ -28,13 +27,15 @@ export const saveData = (data) => ({
   type: 'SAVE_DATA',
   data,
   email: data.email,
-  specialities: [],
+  firstName: '',
+  surname: '',
+  companyName: '',
+  telephone: '',
+  location: '',
   description: 'not provided',
   dob: 'not provided',
-  gender: 'not provided',
-  name: 'Your name here',
-  password: 'not provided',
   website: 'not provided',
+  specialities: []
 });
 
 
@@ -51,7 +52,7 @@ export const retrieveUserInfo = (props) => (
     firebase.database().ref('users/' + props.data.uid).on("value", function(snapshot) {
       if(snapshot.val()) {
         dispatch(saveUserDetails(snapshot.val().description, snapshot.val().dob,
-      snapshot.val().email, snapshot.val().gender, snapshot.val().firstName, snapshot.val().surname,
+      snapshot.val().email, snapshot.val().firstName, snapshot.val().surname,
       snapshot.val().companyName, snapshot.val().telephone, snapshot.val().location,
       snapshot.val().website, snapshot.val().specialities, snapshot.val().registered));
     }
@@ -64,12 +65,16 @@ export const retrieveUserInfo = (props) => (
 export const createProfile = (values, props) => (
   dispatch => {
     firebase.database().ref('users/' + props.data.uid).set({
-      firstName: values.firstName,
-      surname: values.surname,
-      companyName: values.companyName,
-      email: values.email,
-      telephone: values.telephone,
-      location: values.location,
+      description: 'not specified',
+      dob: 'not specified',
+      telephone: 'not specified',
+      website: 'not specified',
+      firstName: values.firstName ? values.firstName : 'not specified',
+      surname: values.surname ? values.surname : 'not specified',
+      companyName: values.companyNam ? values.companyName : 'not specified',
+      email: values.email ? values.email : 'not specified',
+      telephone: values.telephone ? values.telephone : 'not specified',
+      location: values.location ? values.location : 'not specified',
       registered: true,
     })
   }
@@ -77,13 +82,14 @@ export const createProfile = (values, props) => (
 
 export const editProfile = (values, props) => (
   dispatch => {
-    const {firstName, surname, email, dob, gender, description, specialities, website} = props
+    const {firstName, surname, email, dob, telephone, description, specialities, website, location} = props
     const editFirstName = values && values.editFirstName ? values.editFirstName : firstName;
     const editSurname = values && values.editSurname ? values.editSurname : surname;
     const editEmail = values && values.editEmail ? values.editEmail : email;
     const editWebsite = values && values.editWebsite ? values.editWebsite : website;
     const editDob = values && values.editDob ? values.editDob : dob;
-    const editGender = values && values.editGender ? values.editGender : gender;
+    const editTelephone = values && values.editTelephone ? values.editTelephone : telephone;
+    const editLocation = values && values.editLocation ? values.editLocation : location;
     const editDescription = values && values.editDescription ? values.editDescription : description;
     const editSpecialities = !specialities ? [] : specialities;
     if(props.data) {
@@ -93,7 +99,8 @@ export const editProfile = (values, props) => (
         email: editEmail,
         website: editWebsite,
         dob: editDob,
-        gender: editGender,
+        telephone: editTelephone,
+        location: editLocation,
         description: editDescription,
         specialities: editSpecialities,
         registered: true,
@@ -107,9 +114,16 @@ export const editProfile = (values, props) => (
   });
 
 
+const saveSpeciality = (specialities, props) => {
+  firebase.database().ref('users/' + props.data.uid).set({
+    specialities: specialities,
+    })
+}
 
-  export const addSpeciality = (newSpeciality, specialities) => (
+  export const addSpeciality = (newSpeciality, props) => (
     dispatch => {
+      const {specialities} = props;
       if(newSpeciality) specialities.push(newSpeciality);
       dispatch({type: 'UPDATE_SPECIALITIES', specialities});
+      saveSpeciality(specialities, props);
     });

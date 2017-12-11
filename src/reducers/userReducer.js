@@ -8,7 +8,6 @@ const INIT = {
   description: 'not provided',
   dob: 'not provided',
   email: 'not provided',
-  gender: 'not provided',
   website: 'not provided',
   specialities: [],
 };

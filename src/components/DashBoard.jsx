@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Logo from '../images/amchar_logo.png';
-import EditIcon from '../images/edit.png';
-import BottomButtons from './BottomButtons';
-import UserDetails from './UserDetails';
-import { redirect, retrieveUserInfo, signOut, editProfile } from '../actions/userActions';
-import {HomeContainer, Edit, SignOut} from './Styles.jsx'
+import './styles.css';
+import { redirect, retrieveUserInfo, signOut } from '../actions/userActions';
+
 
 export class Dashboard extends Component {
 
@@ -22,47 +19,60 @@ export class Dashboard extends Component {
     this.props.redirect(`/`);
   }
 
+  addSpeciality = () => {
+    this.props.redirect('/add-specialities')
+  }
   render() {
-    const {data, description, firstName, surname, specialities, location} = this.props.user
+    const {data, telephone, website, email, description, firstName, surname, specialities, location} = this.props.user;
     return (
-        <HomeContainer>
-            {data && <div>
-              <div style={{marginTop: '50px', padding: '20px', color: 'white', display: 'flex', justifyContent: 'space-between', fontSize: '24px', letterSpacing: '3px'}}>
-            <div onClick={() => {this.props.signOut()}} style={{position: 'absolute', top: '0', right: '0', backgroundColor: '#9E9E9E', height: '20px', width: '73px', texAlign: 'center', fontSize: '12px'}}>Sign out</div>
+      <div className="main-container">
+        {data && <div>
+          <div className="profile-header" >
             <div>MY PROFILE</div>
-            <div onClick={this.edit} style={{backgroundImage: `url(${EditIcon})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain', width: '10%'}}></div>
+            <div onClick={this.edit} className="edit-icon" />
           </div>
-          <div style={{padding: '10px', color: '#8BC34A', height: '100%', backgroundColor: '#F1F1F1'}}>
+          <div className="profile-container">
             <div style={{display: 'flex'}}>
-              <div style={{backgroundImage: `url(${Logo})`, width: '30%', border: 'solid 4px white'}}/>
+              <div className="profile-image"/>
               <div style={{marginLeft: '15px', display: 'flex', flexDirection: 'column'}}>
-                <div>NAME<br/><a style={{color: 'black'}}>{firstName}{surname}</a></div>
-                <div>AREA OF EXPERTISE<br/><a style={{color: 'black'}}>{specialities}</a></div>
-                <div>LOCATION<br/><a style={{color: 'black'}}>{location}</a></div>
+                <div>NAME<br/><a className="black">{firstName}&nbsp;{surname}</a></div>
+                <div>AREA OF EXPERTISE<button className="add" onClick={() => {this.addSpeciality()}}>add</button><br/>
+                {specialities && specialities.map(speciality => (
+                  <div style={{ display: 'flex', flexWrap: 'wrap'}} key={speciality} >
+                    <a className="black">{speciality}</a>
+                  </div>
+                ))}</div>
+                <div>LOCATION<br/><a className="black">{location}</a></div>
               </div>
-            </div>
-            <div style={{marginTop: '10px'}}>ABOUT<br/><a style={{color: 'black'}}>{description}</a></div>
-          </div>
-        </div>}
-        {!data &&
-          <div>
-            <h3><strong>You must be logged in the view this page</strong> {description}</h3><br/>
-            <button onClick={this.backHome} className="btn-success"><span className="fa fa-user"></span> Back home</button>
-          </div>}
-      </HomeContainer>
-        );
-      }
-    }
+            </div><br/>
+            <div style={{marginTop: '10px'}}>ABOUT<br/><a className="black">{description}</a></div><br/>
+            <div style={{display: 'flex'}}><div className="telephone"/><div className="profile-details">
+              {telephone}</div></div>
+              <div style={{display: 'flex'}}><div className="email"/><div className="profile-details">
+                {email}</div></div>
+                <div style={{display: 'flex'}}><div className="website"/><div className="profile-details">
+                  {website}</div></div>
+                  <div onClick={() => {this.props.signOut()}} className="sign-out">Sign out</div>
+                </div>
+              </div>}
+              {!data &&
+                <div style={{textAlign: 'center'}}>
+                  <h3><strong>You must be logged in the view this page</strong></h3><br/>
+                  <button onClick={this.backHome} className="button"> Back home</button>
+                </div>}
+              </div>
+            );
+          }
+        }
 
-    const mapStateToProps = state => ({
-      user: state.user,
-    });
+        const mapStateToProps = state => ({
+          user: state.user,
+        });
 
-    const mapDispatchToProps = {
-      redirect,
-      retrieveUserInfo,
-      signOut,
-      editProfile,
-    };
+        const mapDispatchToProps = {
+          redirect,
+          retrieveUserInfo,
+          signOut,
+        };
 
-    export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+        export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

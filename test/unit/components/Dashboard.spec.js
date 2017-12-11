@@ -2,7 +2,6 @@ import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { assert, expect } from 'chai';
 import { spy } from 'sinon';
-import { Container,Edit, Quarter, SignOut} from '../../../src/components/Styles.jsx';
 import {Dashboard} from '../../../src/components/Dashboard.jsx';
 
 

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import firebase from '../firebase';
 import {redirect, saveData} from '../actions/userActions';
 import LogSignForm from './LogSignForm';
-import Logo from '../images/amchar_logo.png';
-import { Form, InputField, Button, ErrorMessage, HomeContainer } from './Styles.jsx';
+import './styles.css';
 
 export class Login extends Component {
   constructor() {
@@ -22,15 +21,15 @@ export class Login extends Component {
       this.props.redirect(`/dashboard`);})
       .catch(() => {this.setState({error: true});
     })
-}
+  }
 
-render() {
-   return (
-     <div>
-     <LogSignForm text="Log in" onSubmit={this.validate}/>
-     <div>
-      {this.state.error &&  <ErrorMessage>invalid email or password</ErrorMessage>}
-      </div>
+  render() {
+    return (
+      <div>
+        <LogSignForm text="Log in" onSubmit={this.validate}/>
+        <div>
+          {this.state.error &&  <div className="error-message">invalid email or password</div>}
+        </div>
       </div>
     )
   }

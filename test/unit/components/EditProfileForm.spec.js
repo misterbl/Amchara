@@ -3,7 +3,6 @@ import React from 'react';
 import { assert, expect } from 'chai';
 import { spy } from 'sinon';
 import {EditProfileForm} from '../../../src/components/EditProfileForm';
-import { Form, InputField, Button, Flex} from '../../../src/components/Styles.jsx';
 
 
 describe('<EditProfileForm />', () => {

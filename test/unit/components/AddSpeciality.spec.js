@@ -2,7 +2,6 @@ import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { assert, expect } from 'chai';
 import { spy } from 'sinon';
-import { Form, InputField } from '../../../src/components/Styles.jsx';
 import {AddSpeciality} from '../../../src/components/AddSpeciality.jsx';
 
 

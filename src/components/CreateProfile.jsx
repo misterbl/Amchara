@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import firebase from '../firebase';
 import {redirect, createProfile} from '../actions/userActions';
 import CreateProfileForm from './CreateProfileForm';
-import Logo from '../images/amchar_logo.png';
-import { Form, InputField, Button, ErrorMessage, HomeContainer } from './Styles.jsx';
 
 export class CreateProfile extends Component {
-  constructor() {
-    super()
-    this.state = {error: false};
-  }
-
   validate = (values) => {
     this.props.createProfile(values, this.props.user);
     this.props.redirect(`/dashboard`);
 }
 
-
 render() {
+  const {data} = this.props.user
    return (
+     <div>
+     {data &&
        <CreateProfileForm onSubmit={this.validate}/>
+     }
+       {!data &&
+         <div style={{textAlign: 'center'}}>
+           <h3><strong>You must be logged in the view this page</strong></h3><br/>
+           <button onClick={this.backHome} className="button"> Back home</button>
+         </div>}
+    </div>
     )
   }
 }
