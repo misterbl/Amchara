@@ -7,7 +7,7 @@ import firebase from '../firebase';
 export const LogSignForm = ({ handleSubmit, text }) => (
   <div className="main-container">
     <div className="background-image" >
-      <div style={{ position: 'relative', top: '40%'}}>
+      <div style={{ position: 'relative', top: '-12%'}}>
         <form className="form" onSubmit={handleSubmit}>
           <Field
             className="form-control field"
@@ -25,7 +25,7 @@ export const LogSignForm = ({ handleSubmit, text }) => (
             label='Password'
             placeholder='PASSWORD'
           />
-          <button className="button" type="submit" >{text}</button>
+          <button style={{marginLeft: '0px'}} className="button" type="submit" >{text}</button>
         </form>
       </div>
     </div>
