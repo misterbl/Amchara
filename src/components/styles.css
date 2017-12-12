@@ -114,6 +114,7 @@
 
 .black {
   color: black;
+  font-size: 14px;
 }
 
 .green {
@@ -143,6 +144,9 @@
   background-image: url('../images/website.png');
 }
 
+.details {
+  font-size: 12px;
+}
 .specialities {
   display: flex;
   align-items: center;

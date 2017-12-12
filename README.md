@@ -15,10 +15,6 @@ Once all the dependencies are installed, type:
 
 The app should open automatically in your browser (if it doesn't happen, go to http://localhost:3000/ in your browser)
 
-If you want to run the tests, run:
-
-`$ npm run test:unit`
-
 
 ### Functionnalities
 1. Users can sign up clicking the "Sign up" button in the header

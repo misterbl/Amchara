@@ -1,4 +1,0 @@
---recursive
---require babel-register
---require ./test/testHelper.js
-./test/**/*.spec.js

@@ -36,14 +36,14 @@ export class Dashboard extends Component {
             <div style={{display: 'flex'}}>
               <div className="profile-image"/>
               <div style={{marginLeft: '15px', display: 'flex', flexDirection: 'column'}}>
-                <div>NAME<br/><a className="black">{firstName}&nbsp;{surname}</a></div>
-                <div>AREA OF EXPERTISE<button className="add" onClick={() => {this.addSpeciality()}}>add</button><br/>
+                <div className="details">NAME<br/><a className="black">{firstName}&nbsp;{surname}</a></div>
+                <div className="details">AREA OF EXPERTISE<button className="add" onClick={() => {this.addSpeciality()}}>add</button><br/>
                 {specialities && specialities.map(speciality => (
                   <div style={{ display: 'flex', flexWrap: 'wrap'}} key={speciality} >
                     <a className="black">{speciality}</a>
                   </div>
                 ))}</div>
-                <div>LOCATION<br/><a className="black">{location}</a></div>
+                <div className="details">LOCATION<br/><a className="black">{location}</a></div>
               </div>
             </div><br/>
             <div style={{marginTop: '10px'}}>ABOUT<br/><a className="black">{description}</a></div><br/>
