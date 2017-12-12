@@ -19,16 +19,17 @@ export class Login extends Component {
     .then((data) => {
       this.props.saveData(data);
       this.props.redirect(`/dashboard`);})
-      .catch(() => {console.log("hello");this.setState({error: true});
+      .catch(() => {this.setState({error: true});
     })
   }
 
   render() {
+    console.log(this.state.error);
     return (
       <div>
         <LogSignForm text="Log in" onSubmit={this.validate}/>
         <div>
-          {this.state.error &&  <div className="error-message">invalid email or password</div>}
+          {this.state.error &&  <div style={{position: 'absolute', left: '13%'}} className="error-message">invalid email or password</div>}
         </div>
       </div>
     )

@@ -32,7 +32,7 @@ export class SignUp extends Component {
       <div>
         <LogSignForm text="Sign up" onSubmit={this.validate}/>
         <div>
-          {this.state.error && this.props.text === "Sign up" && <div className="error-message">password must be 8 characters minimum</div>}
+          {this.state.error && <div style={{position: 'absolute', top: '10%', left: '13%'}} className="error-message">password must be 8 characters minimum</div>}
         </div>
       </div>
     )
