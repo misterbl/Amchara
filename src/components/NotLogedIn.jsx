@@ -12,7 +12,7 @@ export class NotLogedIn extends Component {
 
   render() {
     return (
-      <div style={{textAlign: 'center'}}>
+      <div style={{textAlign: 'center', marginTop: '65%'}}>
         <h3><strong>You must be logged in the view this page</strong></h3><br/>
         <button style={{marginLeft: '0px'}} onClick={this.backHome} className="button"> Back home</button>
       </div>

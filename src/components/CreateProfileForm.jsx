@@ -1,7 +1,7 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import './styles.css';
-import {redirect, createProfile} from '../actions/userActions';
+import { redirect, createProfile } from '../actions/userActions';
 
 export const CreateProfileForm = ({ handleSubmit }) => (
   <div className="main-container">

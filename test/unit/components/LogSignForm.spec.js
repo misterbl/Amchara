@@ -10,21 +10,21 @@ describe('<LogSignForm />', () => {
 
   it('should render a Form component', () => {
     expect(testLogSignForm
-      .find(Form))
+      .find('form'))
       .to
       .have
       .length(1);
     });
   it('should render a InputField', () => {
     expect(testLogSignForm
-      .find(InputField))
+      .find('input'))
       .to
       .have
       .length(2);
     });
   it('should render a Button', () => {
     expect(testLogSignForm
-      .find(Button))
+      .find('button'))
       .to
       .have
       .length(1);

@@ -9,10 +9,10 @@ Enzyme.configure({ adapter: new Adapter() })
 global.expect = expect;
 global.sinon = sinon;
 
-const jsdom = require('jsdom').jsdom;
-
-global.document = jsdom('');
-global.window = document.defaultView;
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom;
+const { document } = (new JSDOM('')).window;
+global.document = document;
 
 
 Object
@@ -26,5 +26,5 @@ global.navigator = {
 };
 
 
-require.extensions['.png'] = () => null
-require.extensions['.jpg'] = () => null
+require.extensions['.png'] = () => null;
+require.extensions['.jpg'] = () => null;

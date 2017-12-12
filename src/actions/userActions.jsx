@@ -115,6 +115,15 @@ export const editProfile = (values, props) => (
 
 const saveSpeciality = (specialities, props) => {
   firebase.database().ref('users/' + props.data.uid).set({
+    description: props.description,
+    dob: props.dob,
+    email: props.email,
+    firstName: props.firstName,
+    surname: props.surname,
+    companyName: props.companyName,
+    telephone: props.telephone,
+    location: props.location,
+    website: props.website,
     specialities: specialities,
     })
 }

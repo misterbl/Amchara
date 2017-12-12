@@ -19,21 +19,21 @@ describe('<EditProfileForm />', () => {
 
   it('should render a Form component', () => {
     expect(testEditProfileForm
-      .find(Form))
+      .find('form'))
       .to
       .have
       .length(1);
     });
   it('should render a InputField', () => {
     expect(testEditProfileForm
-      .find(InputField))
+      .find('input'))
       .to
       .have
       .length(7);
     });
   it('should render a Flex', () => {
     expect(testEditProfileForm
-      .find(Flex))
+      .find('div'))
       .to
       .have
       .length(1);

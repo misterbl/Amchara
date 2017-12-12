@@ -22,30 +22,30 @@ describe('<Dashboard />', () => {
 
   it('should render 2 Container component', () => {
     expect(testDashboard
-      .find(Container))
+      .find(div))
+      .to
+      .have
+      .length(3);
+    });
+  it('should render a Edit button', () => {
+    expect(testDashboard
+      .find('button'))
       .to
       .have
       .length(2);
     });
-  it('should render a Edit', () => {
-    expect(testDashboard
-      .find(Edit))
-      .to
-      .have
-      .length(1);
-    });
-  it('should render a Quarter', () => {
-    expect(testDashboard
-      .find(Quarter))
-      .to
-      .have
-      .length(1);
-    });
-  it('should render a SignOut', () => {
-    expect(testDashboard
-      .find(SignOut))
-      .to
-      .have
-      .length(1);
+  // it('should render a Quarter', () => {
+  //   expect(testDashboard
+  //     .find(Quarter))
+  //     .to
+  //     .have
+  //     .length(1);
+  //   });
+  // it('should render a SignOut', () => {
+  //   expect(testDashboard
+  //     .find(SignOut))
+  //     .to
+  //     .have
+  //     .length(1);
     });
 });

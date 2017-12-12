@@ -24,16 +24,8 @@ export default {
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-        }, {
-          loader: 'sass-loader',
-          options: {
-            includePaths: ['absolute/path/a', 'absolute/path/b'],
-          },
-        }],
+        loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        include: APP_DIR,
       },
       {
         test: /\.css$/,
@@ -44,7 +36,7 @@ export default {
         }, {
           loader: 'sass-loader',
           options: {
-            includePaths: ['absolute/path/a', 'absolute/path/b'],
+            include: APP_DIR,
           },
         }],
       },

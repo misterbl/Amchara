@@ -2,7 +2,7 @@ import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { assert, expect } from 'chai';
 import { spy } from 'sinon';
-import {AddSpeciality} from '../../../src/components/AddSpeciality.jsx';
+import {AddSpeciality} from '../../../src/components/AddSpecialityForm.jsx';
 
 
 describe('<AddSpeciality />', () => {
@@ -11,7 +11,7 @@ describe('<AddSpeciality />', () => {
 
   it('should render a Form', () => {
     expect(testAddSpeciality
-      .find(Form))
+      .find('form'))
       .to
       .have
       .length(1);
@@ -19,7 +19,7 @@ describe('<AddSpeciality />', () => {
 
     it('should render a InputField', () => {
       expect(testAddSpeciality
-        .find(InputField))
+        .find('input'))
         .to
         .have
         .length(1);

@@ -12,7 +12,7 @@ export class Home extends Component {
   loginSignup = (tag) => {
     this.props.redirect(`/${tag}`);
   }
-  
+
   render() {
     return (
       <div className="main-container">
